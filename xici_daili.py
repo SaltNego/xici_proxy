@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Author: Negoo_wen
+
 import pymysql
 import requests
 import re
@@ -13,7 +15,9 @@ headers = {
 
 db = pymysql.connect("localhost", "root", "root", "xici_proxy")
 cursor = db.cursor()
-num = 0
+sql_str = 'delete from xicidaili'
+cursor.execute(sql_str)
+
 for i in [1,2,3,4,5]:
     tar_url = 'https://www.xicidaili.com/wn/'+str(i)
     req = requests.get(tar_url,headers = headers)
